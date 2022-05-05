@@ -10,13 +10,13 @@
 ## A faire
 
 * tables :
-	* Annee
-	* Departement
-	* UniteUrbaine
-	* SituationGeographique
-	* Propriétaire
-	* Programmateur
-	* AE
+	* Annee ✔️
+	* Departement ✔️
+	* UniteUrbaine ✔️
+	* SituationGeographique ✔️
+	* Propriétaire ✔️
+	* Programmateur ✔️
+	* AE ✔️
 	* Genre
 	* ZoneCommune
 	* TypeFilm
