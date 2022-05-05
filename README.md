@@ -1,9 +1,9 @@
 # SAE-BD-CINEMA
 
-## Fichiers : 
+## Dossiers : 
 
 * /insertion -> contient les données insérées dans les tables (chaque fichier .sql correspond à une table différente)
-* creation.sql -> contient les scripts de création de table
+* /creation -> contient les scripts de création de table
 * /data -> contient tous les csv à intégrer
 * /resources -> contient le schéma relationnel et le modèle e/a
 

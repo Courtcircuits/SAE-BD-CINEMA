@@ -1,0 +1,3 @@
+CREATE TABLE Annees(
+    annee INT PRIMARY KEY NOT NULL
+)
