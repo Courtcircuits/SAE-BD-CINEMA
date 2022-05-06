@@ -1,0 +1,4 @@
+﻿CREATE TABLE Genre(
+    idGenre VARCHAR(10) PRIMARY KEY NOT NULL,
+    nomGenre VARCHAR(50) NOT NULL
+)

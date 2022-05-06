@@ -1,0 +1,3 @@
+﻿CREATE TABLE Jour(
+    jour VARCHAR(30) PRIMARY KEY NOT NULL
+)

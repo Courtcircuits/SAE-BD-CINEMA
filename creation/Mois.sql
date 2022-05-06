@@ -1,0 +1,3 @@
+﻿CREATE TABLE Mois(
+    mois VARCHAR(30) PRIMARY KEY NOT NULL
+)

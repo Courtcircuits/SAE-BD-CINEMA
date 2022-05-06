@@ -1,0 +1,5 @@
+﻿CREATE TABLE TypeFilm(
+    idTypeFilm VARCHAR(10) PRIMARY KEY NOT NULL,
+    nomTypeFilm VARCHAR(50) NOT NULL,
+    nationalite VARCHAR(50) NOT NULL
+)

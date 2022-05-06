@@ -1,0 +1,3 @@
+﻿CREATE TABLE Region(
+    nomRegion VARCHAR(50) PRIMARY KEY NOT NULL
+)
