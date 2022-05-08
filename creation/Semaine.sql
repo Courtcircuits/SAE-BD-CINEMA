@@ -1,0 +1,3 @@
+﻿CREATE TABLE Semaine(
+    semaine INT PRIMARY KEY NOT NULL
+)
