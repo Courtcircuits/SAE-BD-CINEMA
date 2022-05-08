@@ -1,0 +1,22 @@
+﻿CREATE TABLE Cinema(
+    numCinema INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nomCinema VARCHAR(50),
+    adresseCinema VARCHAR(100),
+    nbEcrans INT,
+    nbFauteuils INT,
+    multiplexe BOOLEAN,
+    latitude FLOAT,
+    longitude FLOAT,
+    geolocalisation VARCHAR(100),
+    ancienneRegion VARCHAR(50),
+    nouvelleRegion VARCHAR(50),
+    numUniteUrbaine VARCHAR(10),
+    idCat VARCHAR(10),
+    idZoneGeo VARCHAR(10),
+    idGenre VARCHAR(10),
+    idProgramateur VARCHAR(10),
+    idProprietaire VARCHAR(10),
+    FOREIGN KEY(numUniteUrbaine) REFERENCES UniteUrbaine(numUniteUrbaine),
+    FOREIGN KEY(idCat) REFERENCES AE(idCat),
+    FOREIGN KEY(idZoneGeo) REFERENCES SituationGeographique(idZoneGeo)
+)
