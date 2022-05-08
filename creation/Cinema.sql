@@ -14,9 +14,12 @@
     idCat VARCHAR(10),
     idZoneGeo VARCHAR(10),
     idGenre VARCHAR(10),
-    idProgramateur VARCHAR(10),
-    idProprietaire VARCHAR(10),
+    idProgramateur INT,
+    idProprietaire INT,
     FOREIGN KEY(numUniteUrbaine) REFERENCES UniteUrbaine(numUniteUrbaine),
     FOREIGN KEY(idCat) REFERENCES AE(idCat),
-    FOREIGN KEY(idZoneGeo) REFERENCES SituationGeographique(idZoneGeo)
+    FOREIGN KEY(idZoneGeo) REFERENCES SituationGeographique(idZoneGeo),
+    FOREIGN KEY(idGenre) REFERENCES Genre(idGenre),
+    FOREIGN KEY(idProgramateur) REFERENCES Programateurs(idProgramateur),
+    FOREIGN KEY(idProprietaire) REFERENCES Proprietaires(idProprietaire)
 )
