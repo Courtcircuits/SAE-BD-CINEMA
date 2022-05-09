@@ -11,7 +11,7 @@ CREATE TABLE Commune(
 
 CREATE TABLE Departement(
     numDepartement VARCHAR(3) NOT NULL,
-    nomDepartement VARCHAR(20) NOT NULL,
+    nomDepartement VARCHAR(50) NOT NULL,
     CONSTRAINT pk_Departement PRIMARY KEY(numDepartement)
 );
 
