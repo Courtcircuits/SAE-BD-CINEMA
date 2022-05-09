@@ -17,7 +17,7 @@ CREATE TABLE Departement(
 
 CREATE TABLE UniteUrbaine(
     numUniteUrbaine VARCHAR(8) NOT NULL,
-    nomUniteUrbaine VARCHAR(20) NOT NULL,
+    nomUniteUrbaine VARCHAR(50) NOT NULL,
     CONSTRAINT pk_UniteUrbaine PRIMARY KEY(numUniteUrbaine)
 );
 
