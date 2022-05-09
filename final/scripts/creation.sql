@@ -180,7 +180,7 @@ CREATE TABLE HistoriqueDep(
     nbEntrees INT,
     recettes FLOAT,
     tauxOccupation FLOAT,
-    nbEtablissementAE INT,
+    nbEtablissementsAE INT,
     nbEcransAE INT,
     nbFauteuilsAE INT,
     nbSeancesAE INT,
