@@ -33,7 +33,7 @@ CREATE TABLE Proprietaire(
 );
 
 CREATE TABLE Programateur(
-    nomProgramateur VARCHAR(50) NOT NULL,
+    nomProgramateur VARCHAR(100) NOT NULL,
     CONSTRAINT pk_Programateur PRIMARY KEY(nomProgramateur)
 );
 
