@@ -18,13 +18,13 @@ CREATE TABLE SituationGeographique(
 );
 
 CREATE TABLE Proprietaires(
-    idProprietaire INT PRIMARY KEY NOT NULL,
-    nomProprietaire VARCHAR(50) NOT NULL
+    
+    nomProprietaire VARCHAR(50) PRIMARY KEY NOT NULL
 );
 
 CREATE TABLE Programateur(
-    idProgramateur INT PRIMARY KEY NOT NULL,
-    nomProgramateur VARCHAR(50) NOT NULL
+    
+    nomProgramateur VARCHAR(50) PRIMARY KEY NOT NULL
 );
 
 CREATE TABLE AE(
@@ -37,15 +37,32 @@ CREATE TABLE Genre(
     nomGenre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE ZoneCommune(
-    idZoneCommune VARCHAR(10) PRIMARY KEY NOT NULL,
-    nomZoneCommune VARCHAR(50) NOT NULL
+CREATE TABLE TypeFilm(
+    nomTypeFilm VARCHAR(10) NOT NULL,
+    CONSTRAINT pk_TypeFilm PRIMARY KEY(nomTypeFilm)
 );
 
-CREATE TABLE TypeFilm(
-    idTypeFilm VARCHAR(10) PRIMARY KEY NOT NULL,
-    nomTypeFilm VARCHAR(50) NOT NULL,
-    nationalite VARCHAR(50) NOT NULL
+CREATE TABLE NationaliteFilm(
+    nationalite VARCHAR(10) NOT NULL,
+    CONSTRAINT pk_NationaliteFilm PRIMARY KEY(nationalite)
+);
+
+CREATE TABLE PdM(
+    numCinema INT NOT NULL,
+    nationalite VARCHAR(10) NOT NULL,
+    PdM FLOAT,
+    CONSTRAINT pk_PdM PRIMARY KEY(numCinema, nationalite),
+    CONSTRAINT fk_numCinema_PdM FOREIGN KEY (numCinema) REFERENCES Cinema(numCinema),
+    CONSTRAINT fk_ nationalite_PdM FOREIGN KEY (nationalite) REFERENCES NationaliteFilm(nationalite)
+);
+
+CREATE TABLE Nombre(
+    numCinema INT NOT NULL,
+    nomTypeFilm VARCHAR(10) NOT NULL,
+    nombre INT,
+    CONSTRAINT pk_Nombre PRIMARY KEY(numCinema, nomTypeFilm),
+    CONSTRAINT fk_numCinema_Nombre FOREIGN KEY (numCinema) REFERENCES Cinema(numCinema),
+    CONSTRAINT fk_nomTypeFilm_Nombre FOREIGN (nomTypeFilm) REFERENCES TypeFilm(nomTypeFilm)
 );
 
 CREATE TABLE Jour(
@@ -74,7 +91,9 @@ CREATE TABLE Cinema(
     adresseCinema VARCHAR(100),
     nbEcrans INT,
     nbFauteuils INT,
-    multiplexe INT,
+    nbSeances INT,
+    nbSemaineActivite INT,
+    multiplexe VARCHAR(3),
     latitude FLOAT,
     longitude FLOAT,
     geolocalisation VARCHAR(100),
@@ -84,14 +103,16 @@ CREATE TABLE Cinema(
     idCat VARCHAR(10),
     idZoneGeo VARCHAR(10),
     idGenre VARCHAR(10),
-    idProgramateur INT,
-    idProprietaire INT,
+    nomProgramateur VARCHAR(50),
+    nomProprietaire INT,
+    labelAE VARCHAR(30),
+    trancheEntrees VARCHAR(50),
     FOREIGN KEY(numUniteUrbaine) REFERENCES UniteUrbaine(numUniteUrbaine),
     FOREIGN KEY(idCat) REFERENCES AE(idCat),
     FOREIGN KEY(idZoneGeo) REFERENCES SituationGeographique(idZoneGeo),
     FOREIGN KEY(idGenre) REFERENCES Genre(idGenre),
-    FOREIGN KEY(idProgramateur) REFERENCES Programateur(idProgramateur),
-    FOREIGN KEY(idProprietaire) REFERENCES Proprietaires(idProprietaire)
+    FOREIGN KEY(nomProgramateur) REFERENCES Programateur(nomProgramateur),
+    FOREIGN KEY(nomProprietaire) REFERENCES Proprietaires(nomProprietaire)
 );
 
 CREATE TABLE Commune(
@@ -102,8 +123,8 @@ CREATE TABLE Commune(
 );
 
 CREATE TABLE Categorie(
-    idCategorie INT PRIMARY KEY NOT NULL ,
-    nomCategorie VARCHAR(50),
+    
+    nomCategorie VARCHAR(50) PRIMARY KEY NOT NULL,
     nomTypeCategorie VARCHAR(50),
     FOREIGN KEY(nomTypeCategorie) REFERENCES TypeCategorie(nomTypeCategorie)
 );
@@ -128,66 +149,55 @@ CREATE TABLE HistoriqueCommune(
 CREATE TABLE ActiviteParAnnee(
     numCinema INT NOT NULL,
     annee INT NOT NULL,
-    nbSemaineActivite INT,
-    nbSeance INT,
     nbEntrees INT,
     FOREIGN KEY(numCinema) REFERENCES Cinema(numCinema),
     FOREIGN KEY(annee) REFERENCES Annee(annee),
     CONSTRAINT pk_ActiviteParAnnee PRIMARY KEY (numCinema, annee)
 );
 
-CREATE TABLE Tension(
-    numCinema INT NOT NULL,
-    idZoneCommune VARCHAR(10) NOT NULL,
-    FOREIGN KEY (numCinema) REFERENCES Cinema(numCinema),
-    FOREIGN KEY (idZoneCommune) REFERENCES ZoneCommune(idZoneCommune),
-    CONSTRAINT pk_Tension PRIMARY KEY (numCinema, idZoneCommune)
-);
-
-CREATE TABLE Diffuser(
-    numCinema INT NOT NULL,
-    annee INT NOT NULL,
-    idTypeFilm VARCHAR(10) NOT NULL,
-    nbFilmProgramme INT,
-    FOREIGN KEY(numCinema) REFERENCES Cinema(numCinema),
-    FOREIGN KEY(annee) REFERENCES Annee(annee),
-    FOREIGN KEY(idTypeFilm) REFERENCES TypeFilm(idTypeFilm),
-    CONSTRAINT pk_Diffuser PRIMARY KEY (numCinema, annee, idTypeFilm)
-);
-
-CREATE TABLE EntreesParAnnee(
-    numCinema INT NOT NULL,
-    annee INT NOT NULL,
-    idTypeFilm VARCHAR(10) NOT NULL,
-    PdM FLOAT,
-    FOREIGN KEY(numCinema) REFERENCES Cinema(numCinema),
-    FOREIGN KEY(annee) REFERENCES Annee(annee),
-    FOREIGN KEY(idTypeFilm) REFERENCES TypeFilm(idTypeFilm),
-    CONSTRAINT pk_EntreesParAnnee PRIMARY KEY (numCinema, annee, idTypeFilm)
-);
 
 CREATE TABLE HistoriqueDep(
-    annee INT NOT NULL,
     numDepartement VARCHAR(10) NOT NULL,
+    annee INT NOT NULL,
+    nbHabitantsDepartement INT,
+    nbEtablissement INT,
+    nbEcrans INT,
+    nbFauteuils INT,
+    nbMultiplexes INT,
+    nbSeances INT,
+    nbEntrees INT,
+    recettes FLOAT,
+    tauxOccupation FLOAT,
+    nbEtablissementAE INT,
     nbEcransAE INT,
     nbFauteuilsAE INT,
     nbSeancesAE INT,
     nbEntreesAE INT,
     recettesAE INT,
+    tauxOccupationAE FLOAT,
     FOREIGN KEY(annee) REFERENCES Annee(annee),
     FOREIGN KEY(numDepartement) REFERENCES Departement(numDepartement),
     CONSTRAINT pk_HistoriqueDep PRIMARY KEY (annee,numDepartement)
 );
 
 CREATE TABLE HistoriqueUniteUrbaine(
-    annee INT NOT NULL,
     numUniteUrbaine VARCHAR(10) NOT NULL,
+    annee INT NOT NULL,
+    nbEtablissements INT,
+    nbEcrans INT,
+    nbFauteuils INT,
+    nbMultiplexes INT,
+    nbSeances INT,
+    nbEntrees INT,
+    recettes INT,
+    tauxOccupation INT,
+    nbEtablissementsAE INT,
     nbEcransAE INT,
-    nbFauteuilsAE INT ,
+    nbFauteuilsAE INT,
     nbSeancesAE INT,
     nbEntreesAE INT,
     recettesAE INT,
-    recette INT,
+    tauxOccupationAE INT,
     FOREIGN KEY (annee) REFERENCES Annee(annee),
     FOREIGN KEY (numUniteUrbaine) REFERENCES UniteUrbaine(numUniteUrbaine),
     CONSTRAINT pk_HistoriqueUniteUrbaine PRIMARY KEY (annee,numUniteUrbaine)

@@ -1,29 +1,28 @@
-Annee(annee);
-Département(numDepartement, nomDepartement);   
-UniteUrbaine(numUniteUrbaine, nomUniteUrbaine);
-SituationGeographique(idZoneGeo, nomZoneGeo);  
-Propriétaires(idProprietaire, nomPropriétaire);
-Programateur(idProgramateur, nomProgramateur); 
-AE(idCat, nomCat);
-Genre(Id_Genre, nomGenre);
-ZoneCommune(idZoneCommune, nomZoneCommune);    
-TypeFilm(idTypeFilm, nomTypeFilm, nationalité);
-Jour(jour);
-Semaine(semaine);
-Mois(mois);
-Region(nomRegion);
-TypeCategorie(nomTypeCategorie);
-Cinema(numCinema, nomCinema, adresseCinema, nbEcran, nbFauteuils, multiplexe, latitude, longitude, geolocalisation, ancienneRegion, nouvelleRegion, #numUniteUrbaine, #idCat, #idZoneGeo, #Id_Genre, #idProgramateur, #idProprietaire);
-Commune(numCommune, nomCommune, #numDepartement);
-Categorie(idCategorie, nomCategorie, #nomTypeCategorie);
-HistoriqueCommune(#numCommune, #annee, population, nbEtablissement, nbEcrans, nbFauteuils, nbMultiplexes, nbCinemasArtEssai, nbSeances, nbEntrees, recettes);
-ActiviteParAnnee(#numCinema, #annee, nbSemaineActivite, nbSeance, nbEntrees);
-Tension(#numCinema, #idZoneCommune);
-Diffuser(#numCinema, #annee, #idTypeFilm, nbFilmProgrammé);
-EntreesParAnnee(#numCinema, #annee, #idTypeFilm, PdM);
-HistoriqueDep(#annee, #numDepartement, nbEcransAE, nbFauteuilsAE, nbSeancesAE, nbENtreesAE, recettesAE);
-HistoriqueUniteUrbaine(#annee, #numUniteUrbaine, nbEcransAE, nbFauteuilsAE, nbSeancesAE, nbENtreesAE, recettesAE, recette);
-FrequentationParJour(#annee, #jour, pourcentageEntrees, pourcentageRecettes, pourcenteageSeances);
-FrequentationParSemaine(#annee, #semaine, nbEntrees, recettes, nbSeances);
-FrequentationParMois(#annee, #mois, nbEntrees, recettes, nbSeances);
-Public(#annee, #nomRegion, #idCategorie, Pourcentage);
+Annee(annee); OK
+Département(numDepartement, nomDepartement);   OK
+UniteUrbaine(numUniteUrbaine, nomUniteUrbaine); OK
+SituationGeographique(idZoneGeo, nomZoneGeo);  OK
+Propriétaires( nomPropriétaire); OK
+Programateur( nomProgramateur); OK
+AE(idCat, nomCat); OK
+Genre( nomGenre); OK
+TypeFilm(nomTypeFilm); OK
+NationaliteFilm(nationalite); OK
+PdM(numCinema#, nationalite#, PdM); OK
+Nombre(nomTypeFilm#, numCinema#, nombre); OK
+Jour(jour); OK
+Semaine(semaine); OK
+Mois(mois); OK
+Region(nomRegion); OK
+TypeCategorie(nomTypeCategorie); OK
+Cinema(numCinema, nomCinema, adresseCinema, nbEcran, nbFauteuils, multiplexe, latitude, longitude, geolocalisation, ancienneRegion, nouvelleRegion, #numUniteUrbaine, #idCat, #idZoneGeo, #Id_Genre, #nomProgramateur, #nomPropriétaire, zoneCommune, labelAE, trancheEntrees); OK
+Commune(numCommune, nomCommune, #numDepartement); OK
+Categorie(idCategorie, nomCategorie, #nomTypeCategorie); OK
+HistoriqueCommune(#numCommune, #annee, population, nbEtablissement, nbEcrans, nbFauteuils, nbMultiplexes, nbCinemasArtEssai, nbSeances, nbEntrees, recettes, population); OK
+ActiviteParAnnee(#numCinema, #annee, nbEntrees); OK
+HistoriqueDep(#annee, #numDepartement, nbHabitantDepartement, nbEtablissements, nbEcrans, nbFauteuils, nbMultiplexes, nbSeances, nbEntrees, recettes, tauxOccupation, nbEtablissementsAE, nbEcransAE, nbFauteuilsAE, nbSeancesAE, nbEntreesAE, recettesAE, tauxOccupationAE); OK
+HistoriqueUniteUrbaine(#annee, #numUniteUrbaine, nbEtablissements, nbEcrans, nbFauteuil, nbMultiplexes, nbSeances, nbEntrees, recettes, tauxOccupation, nbEtablissementsAE, nbEcransAE, nbFauteuilsAE, nbSeancesAE, nbEntreesAE, recettesAE, tauxOccupationAE); OK
+FrequentationParJour(#annee, #jour, pourcentageEntrees, pourcentageRecettes, pourcenteageSeances); OK
+FrequentationParSemaine(#annee, #semaine, nbEntrees, recettes, nbSeances); OK
+FrequentationParMois(#annee, #mois, nbEntrees, recettes, nbSeances); OK
+Public(#annee, #nomRegion, #idCategorie, Pourcentage); OK
