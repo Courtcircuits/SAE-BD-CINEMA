@@ -122,7 +122,7 @@ CREATE TABLE Mois(
 );
 
 CREATE TABLE Region(
-    nomRegion VARCHAR(20) NOT NULL,
+    nomRegion VARCHAR(50) NOT NULL,
     CONSTRAINT pk_Region PRIMARY KEY(nomRegion)
 );
 
