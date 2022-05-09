@@ -1,0 +1,12 @@
+﻿INSERT INTO Mois(nationalite) VALUES ('janvier');
+INSERT INTO Mois(nationalite) VALUES ('f�vrier');
+INSERT INTO Mois(nationalite) VALUES ('mars');
+INSERT INTO Mois(nationalite) VALUES ('avril');
+INSERT INTO Mois(nationalite) VALUES ('mai');
+INSERT INTO Mois(nationalite) VALUES ('juin');
+INSERT INTO Mois(nationalite) VALUES ('juillet');
+INSERT INTO Mois(nationalite) VALUES ('ao�t');
+INSERT INTO Mois(nationalite) VALUES ('septembre');
+INSERT INTO Mois(nationalite) VALUES ('octobre');
+INSERT INTO Mois(nationalite) VALUES ('novembre');
+INSERT INTO Mois(nationalite) VALUES ('d�cembre');
